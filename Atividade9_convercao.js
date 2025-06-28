@@ -5,16 +5,16 @@ valor], ... ] e retorna o objeto equivalente.
 pares.*/
 let ArrayPar = [
     [
-        1, 40
+        "Carlos", 40
     ],
     [
-        2, 30
+        "Carla", 30
     ],
     [
-        3, 90
+        "Cleitom", 90
     ],
     [
-        4, 11
+        "Carlinho", 11
     ]
 ]
 
@@ -22,11 +22,24 @@ let ArrayPar = [
 function paresParaObjeto(pares){
     let criar = Object
     for(let i = 0; i < pares.length; i++){
-    criar[pares[1][i]] = new Object
-    //valorObj[w].cliente = null
-    //valorObj[w].valor = null
+    criar[pares[i][0]] = pares[i][1]
     }
     return criar
    
 }
+function objetoParaPares(obj){
+    let criar = Array()
+    let guardaK = Array()
+    let guardaV = Array()
+    for(let i = 0; i < Object.keys(obj).length; i++){
+    criar[i] =  Array()
+    guardaK = Object.keys(obj)
+    guardaV = Object.values(obj)
+    criar[i][0] = guardaK[i]
+    criar[i][1] = guardaV[i]
+    }
+ return criar
+}
+console.table(ArrayPar)
 console.log(paresParaObjeto(ArrayPar))
+console.table(objetoParaPares(paresParaObjeto(ArrayPar)))
